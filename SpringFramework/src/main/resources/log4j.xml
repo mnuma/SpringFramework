@@ -183,6 +183,6 @@ http://maven.apache.org/maven-v4_0_0.xsd">
 			</plugin>
 		</plugins>
 	</build>
-	<groupId>jp.co.axiz</groupId>
-	<artifactId>axizApp_00</artifactId>
+	<groupId>jp.test.mnuma</groupId>
+	<artifactId>SpringFramework</artifactId>
 </project>
