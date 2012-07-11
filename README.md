@@ -1,4 +1,4 @@
-SpringFrameworkRensyu
+SpringFramework
 =====================
 
 Spring Test
