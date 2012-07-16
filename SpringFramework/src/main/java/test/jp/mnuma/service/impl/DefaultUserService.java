@@ -15,9 +15,7 @@ public class DefaultUserService implements UserService{
 	private UserDao userDao;
 
 	public boolean userLogin(LoginForm loginForm) {
-		
-		System.out.println(loginForm.toString());
-		
+				
 		UserEntity userEntity = new UserEntity();
 		userEntity.setUserName(loginForm.getUserName());
 		userEntity.setUserPassword(loginForm.getUserPassword());

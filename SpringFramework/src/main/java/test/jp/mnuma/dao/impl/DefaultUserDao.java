@@ -10,7 +10,6 @@ import test.jp.mnuma.mapper.UserMapper;
 @Repository("userDao")
 public class DefaultUserDao implements UserDao{
 	
-	//マッパーの呼び出し
 	@Autowired
 	private UserMapper userMapper;
 

@@ -38,11 +38,12 @@ public class LoginController {
 		modelAndView.setViewName("login");
 		modelAndView.addObject("loginForm", userForm);
 		
-		//serviceŒÄ‚Ño‚µ
+		//serviceã®å‘¼ã³å‡ºã—
 		if(UserService.userLogin(userForm)){
-			System.out.println("ƒƒOƒCƒ“‚Å‚«‚Ü‚µ‚½");	
+			System.out.println("login success");
+			modelAndView.setViewName("home");
 		}else{
-			System.out.println("ƒƒOƒCƒ“‚Å‚«‚Ü‚¹‚ñ");	
+			System.out.println("login failed");	
 		}
 		
 		return modelAndView;
