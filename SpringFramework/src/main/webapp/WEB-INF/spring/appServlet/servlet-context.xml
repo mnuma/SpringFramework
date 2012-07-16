@@ -51,12 +51,6 @@
       <property name="password" value="${password}" />
     </bean>
     
-    <!-- mybatis用SqlSessionFactory -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-      <property name="dataSource" ref="dataSource" />
-      <property name="mapperLocations" value="classpath:jp/co/ca/app/mapperSettings/*.xml" />
-    </bean>
-    
 	<!-- ====================================================== MapperFactory -->
     
     <!-- コンポーネント走査 -->
