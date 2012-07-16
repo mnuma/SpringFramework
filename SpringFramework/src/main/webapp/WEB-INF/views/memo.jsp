@@ -46,8 +46,13 @@
 		</div>
 
 		<c:forEach var="item" items="${list}">
+			<font color="#C4C4C4">
+			${fn:escapeXml(item.timestamp)}
+			</font>
+		
 			<div class="alert alert-success">
 					${fn:escapeXml(item.comment)}
+					<a href="delete?commentId=${item.commentId}" class="close">削除</a>
 			</div>
 		</c:forEach>
 

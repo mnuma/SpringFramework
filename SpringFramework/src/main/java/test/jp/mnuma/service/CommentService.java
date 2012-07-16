@@ -14,6 +14,8 @@ public interface CommentService {
 
 	int post(MemoForm memoForm);
 
-	List<CommentEntity> getAll();	
+	List<CommentEntity> getAll();
+
+	int delete(String commentId);	
 }
 

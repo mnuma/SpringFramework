@@ -30,4 +30,9 @@ public class DefaultCommentService implements CommentService{
 		return commentDao.getAll();
 		
 	}
+
+	public int delete(String commentId) {
+		// TODO delete サービスを作る
+		return commentDao.delete(commentId);
+	}
 }

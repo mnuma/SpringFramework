@@ -14,16 +14,25 @@
 	</resultMap>
 
 	<select id="getAll" resultMap="commentResultMap">
-		SELECT * FROM comment_tbl ORDER BY timestamp DESC
+		SELECT comment_id, user_name,
+		comment, is_fav_flg, DATE_FORMAT(timestamp, '%Y/%m/%d %H:%i') AS
+		timestamp
+		FROM comment_tbl
+		ORDER BY timestamp DESC;
 	</select>
 
 	<!-- add comment -->
 	<insert id="post" parameterType="test.jp.mnuma.entity.CommentEntity">
-
-		INSERT INTO comment_tbl (user_name, comment)
+		INSERT INTO comment_tbl
+		(user_name, comment)
 		VALUES
 		(#{userName},#{comment})
-
 	</insert>
+
+	<!-- delete comment-->
+	<delete id="delete" parameterType="test.jp.mnuma.entity.CommentEntity">
+		DELETE FROM comment_tbl
+		WHERE comment_id = #{commentId}
+	</delete>
 
 </mapper>

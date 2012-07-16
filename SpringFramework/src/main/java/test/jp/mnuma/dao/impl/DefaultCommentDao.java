@@ -23,4 +23,9 @@ public class DefaultCommentDao implements CommentDao {
 		return commentMapper.getAll();
 	}
 
+	public int delete(String commentId) {
+		// TODO delete DAOを作る
+		return commentMapper.delete(commentId);
+	}
+
 }

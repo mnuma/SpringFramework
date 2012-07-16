@@ -1,6 +1,5 @@
 package test.jp.mnuma.web.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -46,7 +45,23 @@ public class MemoController {
 		//TODO 投稿を作る
 		commentService.post(memoForm);
 		
-		//TODO 表示を作る
+		List<CommentEntity> list = commentService.getAll();
+		modelAndView.addObject("list", list);
+		
+		modelAndView.addObject("memoForm", new MemoForm());
+		modelAndView.setViewName("memo");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "delete", method = RequestMethod.GET)
+	public ModelAndView doDelete(HttpSession httpSession, MemoForm memoForm) {
+		
+		ModelAndView modelAndView = new ModelAndView();
+		
+		//TODO 削除を作る
+		commentService.delete(memoForm.getCommentId());
+		
+		// 表示
 		List<CommentEntity> list = commentService.getAll();
 		modelAndView.addObject("list", list);
 		
