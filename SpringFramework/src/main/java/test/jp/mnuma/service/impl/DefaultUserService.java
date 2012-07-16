@@ -22,7 +22,7 @@ public class DefaultUserService implements UserService{
 		userEntity.setUserName(loginForm.getUserName());
 		userEntity.setUserPassword(loginForm.getUserPassword());
 		
-		//DAO�̌Ăяo��
+		//Daoの呼び出し
 		return userDao.count(userEntity) > 0;
 	}
 

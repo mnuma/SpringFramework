@@ -10,11 +10,16 @@ public class LoginForm {
 		
 	}
 
-	//LoginFormコンストラクタ
+	//LoginForm繧ｳ繝ｳ繧ｹ繝医Λ繧ｯ繧ｿ
 	public LoginForm(String userId, String userpPassword, String userName) {
 		this.userId = userId;
 		this.userName = userName;
 		this.userPassword = userpPassword;
+	}
+	
+	//toString
+	public String toString() {
+		return "userName:" + userName + "userPassword:" + userPassword;	
 	}
 
 	public String getUserId() {
@@ -39,10 +44,5 @@ public class LoginForm {
 
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
-	}
-	
-	//toString
-	public String toString() {
-		return "userName:" + userName + "userPassword:" + userPassword;	
 	}
 }

@@ -10,21 +10,21 @@ public class UserEntity {
 		
 	}
 	
-	//UserEntityコンストラクタ
+	//UserEntity繧ｳ繝ｳ繧ｹ繝医Λ繧ｯ繧ｿ
 	public UserEntity(String userId, String userName, String userPassword) {	
 		this.userId = userId;
 		this.userName = userName;
 		this.userPassword = userPassword;
 	}
-
-	//UserEntityアクセッサ
-	public String getUserId() {
-		return userId;
-	}
 	
 	//toString
 	public String toString() {
 		return userId + userName + userPassword;
+	}
+
+	//UserEntity繧｢繧ｯ繧ｻ繝�繧ｵ
+	public String getUserId() {
+		return userId;
 	}
 
 	public void setUserId(String userId) {
