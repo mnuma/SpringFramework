@@ -38,7 +38,7 @@
 
 			<form:form modelAttribute="memoForm" action="memo" method="POST">
 				<div>
-					<form:input path="comment" placeholder="コメント" />
+					<form:input path="comment" placeholder="メモ" class="span12"/>
 				</div>
 				<form:button class="btn">投稿</form:button>
 			</form:form>
@@ -46,9 +46,9 @@
 		</div>
 
 		<c:forEach var="item" items="${list}">
-		<div class="alert alert-success">
-				${fn:escapeXml(item.comment)}
-				</div>
+			<div class="alert alert-success">
+					${fn:escapeXml(item.comment)}
+			</div>
 		</c:forEach>
 
 	</div>

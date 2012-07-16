@@ -1,6 +1,7 @@
 package test.jp.mnuma.web.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -55,11 +56,12 @@ public class LoginController {
 			//セッションに保存
 			httpSession.setAttribute("user", new UserEntity(loginForm.getUserId(),loginForm.getUserName(),loginForm.getUserPassword()));
 			
-			//System.out.println(commentService.getAll());
-			//ArrayList<CommentEntity> list = new ArrayList<CommentEntity>();
+			List<CommentEntity> list = commentService.getAll();
+			modelAndView.addObject("list", list);
 			
 			String resultMsg = "ログインしました";
 			modelAndView.addObject("resultMsg", resultMsg);
+			modelAndView.addObject("list", list);
 			modelAndView.addObject("loginForm", new LoginForm());
 			modelAndView.addObject("memoForm", new MemoForm());
 			modelAndView.setViewName("memo");
