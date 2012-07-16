@@ -1,8 +1,10 @@
 package test.jp.mnuma.web.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+
 import test.jp.mnuma.entity.CommentEntity;
 import test.jp.mnuma.form.LoginForm;
 import test.jp.mnuma.form.MemoForm;
@@ -25,7 +27,6 @@ import org.springframework.web.servlet.ModelAndView;
 public class MemoController {
 	private static final Log LOG = LogFactory.getLog(MemoController.class);
 	
-	//TODO CommentService作る
 	@Autowired
 	private CommentService commentService;
 	
@@ -40,10 +41,15 @@ public class MemoController {
 	@RequestMapping(value = "memo", method = RequestMethod.POST)
 	public ModelAndView doSubmit(HttpSession httpSession, MemoForm memoForm) {
 		
+		ModelAndView modelAndView = new ModelAndView();
+		
 		//TODO 投稿を作る
 		commentService.post(memoForm);
 		
-		ModelAndView modelAndView = new ModelAndView();
+		//TODO 表示を作る
+		List<CommentEntity> list = commentService.getAll();
+		modelAndView.addObject("list", list);
+		
 		modelAndView.addObject("memoForm", new MemoForm());
 		modelAndView.setViewName("memo");
 		return modelAndView;

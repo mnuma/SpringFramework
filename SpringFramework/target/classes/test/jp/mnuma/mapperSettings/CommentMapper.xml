@@ -13,9 +13,8 @@
 		<id property="timestamp" column="timestamp" />
 	</resultMap>
 
-	<select id="getAll" parameterType="test.jp.mnuma.entity.CommentEntity"
-		resultMap="commentResultMap">
-		SELECT * FROM comment_tbl
+	<select id="getAll" resultMap="commentResultMap">
+		SELECT * FROM comment_tbl ORDER BY timestamp DESC
 	</select>
 
 	<!-- add comment -->

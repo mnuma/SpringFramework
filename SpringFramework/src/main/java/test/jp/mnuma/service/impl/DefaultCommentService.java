@@ -1,5 +1,7 @@
 package test.jp.mnuma.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,12 @@ public class DefaultCommentService implements CommentService{
 		commentEntity.setComment(memoForm.getComment());
 		commentEntity.setUserName("numa");
 		return commentDao.post(commentEntity);
+		
+	}
+	
+	public List<CommentEntity> getAll(){
+		
+		return commentDao.getAll();
 		
 	}
 }

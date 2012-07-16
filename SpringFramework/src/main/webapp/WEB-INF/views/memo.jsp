@@ -22,9 +22,7 @@
 
 		<div class="row-fluid">
 
-			<div>
-				${fn:escapeXml(user.userName)} でログイン中
-			</div>
+			<div>${fn:escapeXml(user.userName)} でログイン中</div>
 
 			<%-- ログイン失敗メッセージ --%>
 			<c:if test="${resultMsg ne null && resultMsg ne ''}">
@@ -46,6 +44,13 @@
 			</form:form>
 
 		</div>
+
+		<c:forEach var="item" items="${list}">
+		<div class="alert alert-success">
+				${fn:escapeXml(item.comment)}
+				</div>
+		</c:forEach>
+
 	</div>
 </body>
 </html>

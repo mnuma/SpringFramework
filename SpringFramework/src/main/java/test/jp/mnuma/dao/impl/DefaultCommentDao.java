@@ -1,5 +1,7 @@
 package test.jp.mnuma.dao.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -17,8 +19,8 @@ public class DefaultCommentDao implements CommentDao {
 		return commentMapper.post(commentEntity);
 	}
 
-	public CommentEntity getAll(CommentEntity commentEntity) {
-		return commentMapper.getAll(commentEntity);
+	public List<CommentEntity> getAll() {
+		return commentMapper.getAll();
 	}
 
 }

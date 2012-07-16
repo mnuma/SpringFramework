@@ -1,7 +1,10 @@
 package test.jp.mnuma.web.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
+import test.jp.mnuma.entity.CommentEntity;
 import test.jp.mnuma.entity.UserEntity;
 import test.jp.mnuma.form.LoginForm;
 import test.jp.mnuma.form.MemoForm;
@@ -15,6 +18,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.sun.tools.javac.code.Attribute.Array;
 
 /**
  * @author mnuma
@@ -47,10 +52,11 @@ public class LoginController {
 		if(userService.userLogin(loginForm)){
 			System.out.println("login success");
 			
+			//セッションに保存
 			httpSession.setAttribute("user", new UserEntity(loginForm.getUserId(),loginForm.getUserName(),loginForm.getUserPassword()));
 			
-			String msg = "aaaaaa";
-			modelAndView.addObject("msg", msg);
+			//System.out.println(commentService.getAll());
+			//ArrayList<CommentEntity> list = new ArrayList<CommentEntity>();
 			
 			String resultMsg = "ログインしました";
 			modelAndView.addObject("resultMsg", resultMsg);
