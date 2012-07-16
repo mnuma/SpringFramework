@@ -19,11 +19,43 @@
 </head>
 <body>
 	<div class="container" style="padding-top: 40px;">
+	
+	<div class="navbar navbar-fixed-top">
+			        	<div class="navbar-inner">
+			        	<div class="container">
+				        	<a class="brand" href="">共有しないっ!!</a>
+				        		<ul class="nav">
+				                    <li class="active"><a href="">TOP</a></li>
+                    			</ul>
+                    		
+                    			
+                    			<!--検索フォーム-->
+                    			<form class="navbar-search pull-right">
+	                    				<input type="text" class="search-query" placeholder="検索"> <!--プレースホルダー-->
+	                    				<button class="btn">検索</button>
+	                    		</form>
+	                    		
+	                    		<!--ドロップダウンメニュー-->
+	                    		<ul class="nav pull-right">
+	                    			<li class="dropdown">
+	                    				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		                    				<span>
+		                    				${fn:escapeXml(user.userName)} でログイン中
+		                    				</span>
+		                    			</a>
+		                    			<ul class="dropdown-menu">
+		                    			<li><a href="login">ログアウト</a></li>
+		                    			</ul>
+	                    			</li>
+	                    		</ul>
+	                    	
+	                    </div>
+                    </div>
+              </div>       
+	
 
-		<div class="row-fluid">
-
-			<div>${fn:escapeXml(user.userName)} でログイン中</div>
-
+		<div class="row-fluid" style="padding-top:40px;">
+			
 			<%-- ログイン失敗メッセージ --%>
 			<c:if test="${resultMsg ne null && resultMsg ne ''}">
 				<div class="alert alert-error fade in">
