@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+.error {
+  color: red;
+}
+
+ul.none {
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+table.form tr:not(:last-child) td {
+  text-align: right;
+}
+
+table.form tr:last-child {
+  text-align: center;
+}

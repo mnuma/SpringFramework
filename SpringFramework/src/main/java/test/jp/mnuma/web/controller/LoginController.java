@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginController {
 	private static final Log LOG = LogFactory.getLog(LoginController.class);
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = {"/","/login"}, method = RequestMethod.GET)
 	public ModelAndView viewLogin() {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("loginForm", new LoginForm());

@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+table.marine {
+  margin: 0 0 20px;
+  border-collapse: collapse;
+  border: 1px #CCC solid
+}
+
+table.marine th {
+  padding: 5px 10px;
+  background: #EEE;
+  border: 1px #CCC solid;
+}
+
+table.marine td {
+  padding: 5px 10px;
+  border: 1px #CCC solid;
+}
+
+table.marine td input {
+  padding: 5px 10px;
+  border: 1px #CCC solid;
+}
+
+table.marine button {
+  padding: 5px 10px;
+  border: 1px #CCC solid;
+}
+
+table.marine tr:nth-child(even) td {
+  background: #DFEEFF;
+}
+
+body{
+	background-color: red;
+}
