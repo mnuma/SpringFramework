@@ -12,5 +12,7 @@ public interface CommentDao {
 	List<CommentEntity> getAll();
 	
 	int delete(String commentId);
+
+	List<CommentEntity> search(String searchQuery);
 	
 }

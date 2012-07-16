@@ -16,6 +16,8 @@ public interface CommentService {
 
 	List<CommentEntity> getAll();
 
-	int delete(String commentId);	
+	int delete(String commentId);
+
+	List<CommentEntity> search(String searchQuery);	
 }
 

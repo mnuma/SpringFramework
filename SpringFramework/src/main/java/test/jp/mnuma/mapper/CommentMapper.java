@@ -12,4 +12,6 @@ public interface CommentMapper {
 	List<CommentEntity> getAll();
 
 	int delete(String commentId);
+
+	List<CommentEntity> search(String searchQuery);
 }

@@ -5,10 +5,9 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import test.jp.mnuma.entity.CommentEntity;
-import test.jp.mnuma.form.LoginForm;
 import test.jp.mnuma.form.MemoForm;
+import test.jp.mnuma.form.SearchForm;
 import test.jp.mnuma.service.CommentService;
-import test.jp.mnuma.service.UserService;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -32,7 +31,12 @@ public class MemoController {
 	@RequestMapping(value = "memo", method = RequestMethod.GET)
 	public ModelAndView showMemo() {
 		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("searchForm", new SearchForm());
 		modelAndView.addObject("memoForm", new MemoForm());
+		
+		List<CommentEntity> list = commentService.getAll();
+		modelAndView.addObject("list", list);
+		
 		modelAndView.setViewName("memo");
 		return modelAndView;
 	}
@@ -48,6 +52,8 @@ public class MemoController {
 		List<CommentEntity> list = commentService.getAll();
 		modelAndView.addObject("list", list);
 		
+		//ここにFormがないとだめ
+		modelAndView.addObject("searchForm", new SearchForm());
 		modelAndView.addObject("memoForm", new MemoForm());
 		modelAndView.setViewName("memo");
 		return modelAndView;
@@ -65,8 +71,24 @@ public class MemoController {
 		List<CommentEntity> list = commentService.getAll();
 		modelAndView.addObject("list", list);
 		
+		modelAndView.addObject("searchForm", new SearchForm());
 		modelAndView.addObject("memoForm", new MemoForm());
 		modelAndView.setViewName("memo");
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "search", method = RequestMethod.GET)
+	public ModelAndView doSearch(HttpSession httpSession, SearchForm searchForm) {
+		
+		ModelAndView modelAndView = new ModelAndView();
+		
+		//TODO 検索を作る
+		List<CommentEntity> result = commentService.search(searchForm.getSearchQuery());
+		
+		// 表示
+		modelAndView.addObject("result", result);
+		modelAndView.addObject("searchForm", new SearchForm());
+		modelAndView.setViewName("search");
 		return modelAndView;
 	}
 }

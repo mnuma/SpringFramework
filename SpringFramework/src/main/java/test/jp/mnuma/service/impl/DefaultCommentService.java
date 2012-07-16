@@ -35,4 +35,9 @@ public class DefaultCommentService implements CommentService{
 		// TODO delete サービスを作る
 		return commentDao.delete(commentId);
 	}
+
+	public List<CommentEntity> search(String searchQuery) {
+		// TODO 検索サービスを作る
+		return commentDao.search(searchQuery);
+	}
 }

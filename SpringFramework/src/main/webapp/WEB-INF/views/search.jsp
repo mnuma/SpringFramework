@@ -51,33 +51,14 @@
 
 		<div class="row-fluid" style="padding-top: 40px;">
 
-			<%-- ログイン失敗メッセージ --%>
-			<c:if test="${resultMsg ne null && resultMsg ne ''}">
-				<div class="alert alert-error fade in">
-					<a class="close" data-dismiss="alert"><i class=" icon-ok"></i></a>
-					<!--data dismissで消す-->
-					<c:out value="${resultMsg}" />
-				</div>
-				<p />
-			</c:if>
-
-			<a class="brand" href="">メモ</a>
-
-			<form:form modelAttribute="memoForm" action="memo" method="POST">
-				<div>
-					<form:input path="comment" placeholder="メモ" class="span12" />
-				</div>
-				<form:button class="btn">投稿</form:button>
-			</form:form>
+			<a class="brand" href="">検索結果</a>
 
 		</div>
 
-		<c:forEach var="item" items="${list}">
+		<c:forEach var="item" items="${result}">
 			<font color="#C4C4C4"> ${fn:escapeXml(item.timestamp)} </font>
-
 			<div class="alert alert-success">
-				${fn:escapeXml(item.comment)} <a
-					href="delete?commentId=${item.commentId}" class="close">削除</a>
+				${fn:escapeXml(item.comment)} 
 			</div>
 		</c:forEach>
 

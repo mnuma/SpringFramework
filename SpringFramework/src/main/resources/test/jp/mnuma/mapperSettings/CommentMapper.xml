@@ -34,5 +34,9 @@
 		DELETE FROM comment_tbl
 		WHERE comment_id = #{commentId}
 	</delete>
+	
+	<select id="search" parameterType="java.lang.String" resultMap="commentResultMap">
+		SELECT * FROM comment_tbl WHERE comment LIKE '%' #{searchQuery} '%'
+	</select>
 
 </mapper>

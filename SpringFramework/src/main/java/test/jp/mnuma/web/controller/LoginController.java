@@ -9,6 +9,7 @@ import test.jp.mnuma.entity.CommentEntity;
 import test.jp.mnuma.entity.UserEntity;
 import test.jp.mnuma.form.LoginForm;
 import test.jp.mnuma.form.MemoForm;
+import test.jp.mnuma.form.SearchForm;
 import test.jp.mnuma.service.CommentService;
 import test.jp.mnuma.service.UserService;
 
@@ -62,8 +63,11 @@ public class LoginController {
 			String resultMsg = "ログインしました";
 			modelAndView.addObject("resultMsg", resultMsg);
 			modelAndView.addObject("list", list);
+			
+			modelAndView.addObject("searchForm", new SearchForm());
 			modelAndView.addObject("loginForm", new LoginForm());
 			modelAndView.addObject("memoForm", new MemoForm());
+			
 			modelAndView.setViewName("memo");
 			
 		}else{

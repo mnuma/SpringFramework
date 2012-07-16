@@ -28,4 +28,9 @@ public class DefaultCommentDao implements CommentDao {
 		return commentMapper.delete(commentId);
 	}
 
+	public List<CommentEntity> search(String searchQuery) {
+		// TODO 検索サービスを作る
+		return commentMapper.search(searchQuery);
+	}
+
 }
