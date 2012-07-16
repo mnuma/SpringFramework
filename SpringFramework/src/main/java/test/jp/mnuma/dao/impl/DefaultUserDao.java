@@ -10,7 +10,7 @@ import test.jp.mnuma.mapper.UserMapper;
 @Repository("userDao")
 public class DefaultUserDao implements UserDao{
 	
-	//ƒ}ƒbƒp[ŒÄ‚Ño‚µ
+	//ãƒãƒƒãƒ‘ãƒ¼ã®å‘¼ã³å‡ºã—
 	@Autowired
 	private UserMapper userMapper;
 
