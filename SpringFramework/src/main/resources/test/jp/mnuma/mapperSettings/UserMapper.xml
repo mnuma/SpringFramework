@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                               "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- ユーザ管理テーブルマッパー -->
+<mapper namespace="test.jp.mnuma.mapper.UserMapper">
+
+	<resultMap type="test.jp.mnuma.entity.UserEntity" id="userResultMap">
+		<id property="userId" column="user_id" />
+		<id property="userName" column="user_name" />
+		<id property="userPassword" column="user_password" />
+	</resultMap>
+
+	<select id="count" parameterType="test.jp.mnuma.entity.UserEntity" resultType="int">
+		SELECT count(user_name)
+		FROM user_mst
+		<where>
+			<if test="userId != null">user_name = #{userName}</if>
+			<if test="userPassword != null">AND user_password = #{userPassword}</if>
+		</where>
+	</select>
+	
+</mapper>

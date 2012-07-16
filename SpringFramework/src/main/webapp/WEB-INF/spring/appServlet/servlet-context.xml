@@ -51,7 +51,19 @@
       <property name="password" value="${password}" />
     </bean>
     
+    <!-- mybatis用SqlSessionFactory -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+      <property name="dataSource" ref="dataSource" />
+      <property name="mapperLocations" value="classpath:test/jp/mnuma/mapperSettings/*.xml" />
+    </bean>
+    
 	<!-- ====================================================== MapperFactory -->
+	
+	 <!-- ユーザ管理 Mapper -->
+    <bean id="UserMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+      <property name="mapperInterface" value="test.jp.mnuma.mapper.UserMapper" />
+      <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
     
     <!-- コンポーネント走査 -->
 	<context:component-scan base-package="test.jp.mnuma" />

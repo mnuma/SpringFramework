@@ -1,24 +1,30 @@
-package test.jp.mnuma.form;
+package test.jp.mnuma.entity;
 
-public class LoginForm {
-	
+public class UserEntity {
+
 	private String userId;
 	private String userName;
 	private String userPassword;
 	
-	public LoginForm() {
+	public UserEntity() {
 		
 	}
-
-	//LoginFormコンストラクタ
-	public LoginForm(String userId, String userpPassword, String userName) {
+	
+	//UserEntityコンストラクタ
+	public UserEntity(String userId, String userName, String userPassword) {	
 		this.userId = userId;
 		this.userName = userName;
-		this.userPassword = userpPassword;
+		this.userPassword = userPassword;
 	}
 
+	//UserEntityアクセッサ
 	public String getUserId() {
 		return userId;
+	}
+	
+	//toString
+	public String toString() {
+		return userId + userName + userPassword;
 	}
 
 	public void setUserId(String userId) {
@@ -39,10 +45,5 @@ public class LoginForm {
 
 	public void setUserPassword(String userPassword) {
 		this.userPassword = userPassword;
-	}
-	
-	//toString
-	public String toString() {
-		return "userName:" + userName + "userPassword:" + userPassword;	
 	}
 }
