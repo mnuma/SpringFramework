@@ -22,6 +22,10 @@
 
 		<div class="row-fluid">
 
+			<div>
+				${fn:escapeXml(user.userName)} でログイン中
+			</div>
+
 			<%-- ログイン失敗メッセージ --%>
 			<c:if test="${resultMsg ne null && resultMsg ne ''}">
 				<div class="alert alert-error fade in">
@@ -31,7 +35,7 @@
 				</div>
 				<p />
 			</c:if>
-			
+
 			<a class="brand" href="">メモ</a>
 
 			<form:form modelAttribute="memoForm" action="memo" method="POST">

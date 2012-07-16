@@ -1,6 +1,5 @@
 package test.jp.mnuma.service;
 
-import test.jp.mnuma.entity.CommentEntity;
 import test.jp.mnuma.form.MemoForm;
 
 /**
@@ -9,6 +8,6 @@ import test.jp.mnuma.form.MemoForm;
  */
 public interface CommentService {
 
-	CommentEntity post(MemoForm memoForm);
+	int post(MemoForm memoForm);	
 }
 

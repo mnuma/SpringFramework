@@ -39,9 +39,8 @@
 				</div>
 				<form:button class="btn">ログイン</form:button>
 			</form:form>
-
 		</div>
-
+		
 	</div>
 </body>
 </html>

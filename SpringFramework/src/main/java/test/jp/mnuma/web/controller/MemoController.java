@@ -26,6 +26,7 @@ public class MemoController {
 	private static final Log LOG = LogFactory.getLog(MemoController.class);
 	
 	//TODO CommentService作る
+	@Autowired
 	private CommentService commentService;
 	
 	@RequestMapping(value = "memo", method = RequestMethod.GET)
@@ -40,12 +41,10 @@ public class MemoController {
 	public ModelAndView doSubmit(HttpSession httpSession, MemoForm memoForm) {
 		
 		//TODO 投稿を作る
-		System.out.println(memoForm.getComment());
 		commentService.post(memoForm);
 		
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("memoForm", new MemoForm());
-		
 		modelAndView.setViewName("memo");
 		return modelAndView;
 	}

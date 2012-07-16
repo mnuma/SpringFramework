@@ -1,8 +1,11 @@
 package test.jp.mnuma.web.controller;
 
 import javax.servlet.http.HttpSession;
+
+import test.jp.mnuma.entity.UserEntity;
 import test.jp.mnuma.form.LoginForm;
 import test.jp.mnuma.form.MemoForm;
+import test.jp.mnuma.service.CommentService;
 import test.jp.mnuma.service.UserService;
 
 import org.apache.commons.logging.Log;
@@ -22,7 +25,10 @@ public class LoginController {
 	private static final Log LOG = LogFactory.getLog(LoginController.class);
 	
 	@Autowired
-	private UserService UserService;
+	private UserService userService;
+	
+	@Autowired
+	private CommentService commentService;
 	
 	@RequestMapping(value = {"/","/login"}, method = RequestMethod.GET)
 	public ModelAndView viewLogin() {
@@ -38,8 +44,13 @@ public class LoginController {
 		modelAndView.setViewName("login");
 				
 		//serviceの呼び出し
-		if(UserService.userLogin(loginForm)){
+		if(userService.userLogin(loginForm)){
 			System.out.println("login success");
+			
+			httpSession.setAttribute("user", new UserEntity(loginForm.getUserId(),loginForm.getUserName(),loginForm.getUserPassword()));
+			
+			String msg = "aaaaaa";
+			modelAndView.addObject("msg", msg);
 			
 			String resultMsg = "ログインしました";
 			modelAndView.addObject("resultMsg", resultMsg);

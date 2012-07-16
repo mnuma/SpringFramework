@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                               "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- ユーザ管理テーブルマッパー -->
+<mapper namespace="test.jp.mnuma.mapper.CommentMapper">
+
+	<resultMap type="test.jp.mnuma.entity.CommentEntity" id="commentResultMap">
+		<id property="commentId" column="comment_id" />
+		<id property="userName" column="user_name" />
+		<id property="comment" column="comment" />
+		<id property="isFavFlg" column="is_fav_frg" />
+		<id property="timestamp" column="timestamp" />
+	</resultMap>
+
+	<select id="getAll" parameterType="test.jp.mnuma.entity.CommentEntity"
+		resultMap="commentResultMap">
+		SELECT * FROM comment_tbl
+	</select>
+
+	<!-- add comment -->
+	<insert id="post" parameterType="test.jp.mnuma.entity.CommentEntity">
+
+		INSERT INTO comment_tbl (user_name, comment)
+		VALUES
+		(#{userName},#{comment})
+
+	</insert>
+
+</mapper>

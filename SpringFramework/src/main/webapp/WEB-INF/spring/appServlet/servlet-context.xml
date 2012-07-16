@@ -59,9 +59,15 @@
     
 	<!-- ====================================================== MapperFactory -->
 	
-	 <!-- ユーザ管理 Mapper -->
+	<!-- ユーザ管理 Mapper -->
     <bean id="UserMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
       <property name="mapperInterface" value="test.jp.mnuma.mapper.UserMapper" />
+      <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+    
+     <!-- コメント管理 Mapper -->
+    <bean id="CommentMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+      <property name="mapperInterface" value="test.jp.mnuma.mapper.CommentMapper" />
       <property name="sqlSessionFactory" ref="sqlSessionFactory" />
     </bean>
     
