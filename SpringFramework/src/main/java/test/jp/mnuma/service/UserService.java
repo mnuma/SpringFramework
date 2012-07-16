@@ -7,7 +7,8 @@ import test.jp.mnuma.form.LoginForm;
  *
  */
 public interface UserService {
-	//ユーザのログイン
+	
 	boolean userLogin(LoginForm userForm);
+	
 }
 

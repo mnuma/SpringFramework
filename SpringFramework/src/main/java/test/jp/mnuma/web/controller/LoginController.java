@@ -1,8 +1,8 @@
 package test.jp.mnuma.web.controller;
 
 import javax.servlet.http.HttpSession;
-
 import test.jp.mnuma.form.LoginForm;
+import test.jp.mnuma.form.MemoForm;
 import test.jp.mnuma.service.UserService;
 
 import org.apache.commons.logging.Log;
@@ -33,15 +33,20 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public ModelAndView doLogin(HttpSession httpSession, LoginForm userForm) {
+	public ModelAndView doLogin(HttpSession httpSession, LoginForm loginForm) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("login");
-		modelAndView.addObject("loginForm", userForm);
-		
+				
 		//serviceの呼び出し
-		if(UserService.userLogin(userForm)){
+		if(UserService.userLogin(loginForm)){
 			System.out.println("login success");
-			modelAndView.setViewName("home");
+			
+			String resultMsg = "ログインしました";
+			modelAndView.addObject("resultMsg", resultMsg);
+			modelAndView.addObject("loginForm", new LoginForm());
+			modelAndView.addObject("memoForm", new MemoForm());
+			modelAndView.setViewName("memo");
+			
 		}else{
 			System.out.println("login failed");	
 		}
