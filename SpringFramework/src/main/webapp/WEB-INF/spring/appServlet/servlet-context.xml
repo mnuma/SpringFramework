@@ -19,12 +19,47 @@
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 
-	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/views/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
-	
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources
+      in the /WEB-INF/views directory -->
+    <bean 
+      id="internalResourceViewResolver"
+      class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+      <property name="prefix" value="/WEB-INF/views/" />
+      <property name="suffix" value=".jsp" />
+    </bean>
+    
+	<!-- ====================================================== DB設定 -->
+    
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+      <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <!-- プロパティファイル -->
+    <bean id="placeholderConfig" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+      <property name="locations">
+        <list>
+          <value>classpath:properties/dataSource.properties</value>
+        </list>
+      </property>
+    </bean>
+    
+    <!-- MySQLデータソース -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+      <property name="driverClassName" value="${driver}" />
+      <property name="url" value="${url}" />
+      <property name="username" value="${username}" />
+      <property name="password" value="${password}" />
+    </bean>
+    
+    <!-- mybatis用SqlSessionFactory -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+      <property name="dataSource" ref="dataSource" />
+      <property name="mapperLocations" value="classpath:jp/co/ca/app/mapperSettings/*.xml" />
+    </bean>
+    
+	<!-- ====================================================== MapperFactory -->
+    
+    <!-- コンポーネント走査 -->
 	<context:component-scan base-package="test.jp.mnuma" />
 	
 </beans>
