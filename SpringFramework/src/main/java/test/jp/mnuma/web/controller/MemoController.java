@@ -1,5 +1,6 @@
 package test.jp.mnuma.web.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -15,7 +16,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import apple.awt.CMenuBar;
 
 /**
  * @author mnuma
@@ -58,6 +62,19 @@ public class MemoController {
 		modelAndView.setViewName("memo");
 		return modelAndView;
 	}
+	
+	@RequestMapping(value="ajaxGetmemo", method=RequestMethod.GET)
+    @ResponseBody
+    public List<CommentEntity> jsonList(MemoForm memoForm) {
+      /*
+      List<TagEntity> tag = tagService.getTags(tagForm);
+      */
+      List<CommentEntity> comment = new ArrayList<CommentEntity>();
+      CommentEntity commentent = new CommentEntity();
+      commentent.setComment(memoForm.getComment() + "test");
+      comment.add(commentent);
+      return comment;
+    }
 	
 	@RequestMapping(value = "delete", method = RequestMethod.GET)
 	public ModelAndView doDelete(HttpSession httpSession, MemoForm memoForm) {

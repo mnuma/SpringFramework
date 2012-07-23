@@ -134,12 +134,25 @@ http://maven.apache.org/maven-v4_0_0.xsd">
       <version>2.1</version>
       <scope>provided</scope>
     </dependency>
+    
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
       <version>1.2</version>
     </dependency>
 
+	<!-- Ajax -->
+	<dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-core-asl</artifactId>
+		<version>1.6.4</version>
+	</dependency>
+	<dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-mapper-asl</artifactId>
+		<version>1.6.4</version>
+	</dependency>
+	
     <!-- Test -->
     <dependency>
       <groupId>junit</groupId>
@@ -148,7 +161,8 @@ http://maven.apache.org/maven-v4_0_0.xsd">
       <scope>test</scope>
     </dependency>
   </dependencies>
-
+  
+   
   <build>
     <plugins>
       <plugin>
@@ -189,7 +203,8 @@ http://maven.apache.org/maven-v4_0_0.xsd">
       </plugin>
     </plugins>
   </build>
+  
 
-  <groupId>jp.co.axiz</groupId>
+  <groupId>test.jp.mnuma</groupId>
   <artifactId>mybatisSpringMVC</artifactId>
 </project>

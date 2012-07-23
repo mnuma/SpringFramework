@@ -12,9 +12,20 @@
 
 <!-- bootstrap -->
 <link href="resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="resources/bootstrap/js/bootstrap.min.js"></script>
+
+<script>
+$(function() {
+	$('input[type=text]').keyup(function() {
+		$.getJSON('ajaxGetmemo', {
+			'comment' : $(this).val()
+		}, function(data) {
+			console.log(data[0].comment);
+		});
+	});
+});
+</script>
 
 </head>
 <body>
